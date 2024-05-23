@@ -56,9 +56,11 @@ public class Proyecto1_2024 {
                     break;
                 case 6:
                     System.out.println("Problema 6");
+                    problema_6();
                     break;
                 case 7:
                     System.out.println("Problema 7");
+                  
                     break;
                 case 8:
                     System.out.println("Problema 8");
@@ -255,4 +257,37 @@ public class Proyecto1_2024 {
         System.out.printf("Descuento ISR (5%%): Q%.2f%n", descuentoISR);
         System.out.printf("Salario Total después de Descuentos: Q%.2f%n", salarioTotalDespuesDescuentos);
    }
+   
+    public static void problema_6(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el numero de personas a encuestar: ");
+        int nEncuestados = scanner.nextInt();
+        double pesoNiños = 0.0, pesoAdultos = 0.0, pesoJovenes = 0.0, pesoAMayores = 0.0;
+        int contNiños = 0, contAdultos = 0, contJovenes = 0, contAMayores = 0;
+        
+        for (int i = 0; i < nEncuestados; i++) {
+            System.out.println("**************************************************************************");
+            System.out.println("Ingrese la edad de la persona: ");
+            int edadPersona = scanner.nextInt();
+            System.out.println("Ingrese el peso de la persona: ");
+            double peso = scanner.nextDouble();
+            System.out.println("**************************************************************************");
+        
+            if (edadPersona > 0 && edadPersona <=12) {
+                contNiños++;
+                pesoNiños += peso;
+            } else if (edadPersona >=13 && edadPersona<=29 ) {
+                contJovenes++;
+                pesoJovenes += peso;
+            } else if (edadPersona >=30 && edadPersona <=59) {
+                contAdultos++;
+                pesoAdultos += peso;
+            }else if (edadPersona >=60 && edadPersona <=100) {
+                contAMayores++;
+                pesoAMayores += peso;
+            }else{
+                System.out.println("Edad fuera de rango");
+            }
+        }
+    }
 }
