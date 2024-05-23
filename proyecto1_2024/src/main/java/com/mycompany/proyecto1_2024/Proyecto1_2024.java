@@ -59,11 +59,11 @@ public class Proyecto1_2024 {
                     problema_6();
                     break;
                 case 7:
-                    System.out.println("Problema 7");
-                  
+                    System.out.println("Problema 7");                 
                     break;
                 case 8:
                     System.out.println("Problema 8");
+                    problema_8();
                     break;
                 case 9:
                     System.out.println("Problema 9");
@@ -307,5 +307,101 @@ public class Proyecto1_2024 {
         System.out.println("El promedio de pesos para adultos mayores es de: " + promedioAMayores);
     }
     
-   
+    
+    public static void problema_7(){
+    
+    }
+    
+    public static void problema_8(){
+        Scanner entrada = new  Scanner(System.in); 
+        int opcion = 0;
+        int salida = 0;
+        do {            
+             System.out.println("Seleccione una opcion:");
+            System.out.println("1. Multiplicacion");
+            System.out.println("2. Division");
+            System.out.println("3. Salir");
+            opcion = entrada.nextInt();
+            
+             if (opcion ==1 || opcion==2) {
+                System.out.println("Ingrese el numero a");
+                int a = entrada.nextInt();
+                System.out.println("Ingrese el numero b");
+                int b = entrada.nextInt();
+                
+                if (b == 0 && opcion ==2){
+                    System.out.println("Error: no se puede dividir por 0");
+                }else{
+                    if (opcion == 1) {
+                        int resultado = multiplicar(a,b);
+                        System.out.println("El resultado de la multiplicacion: " +resultado);
+                    }else if (opcion==2) {
+                        int resultado = dividir(a,b);
+                        System.out.println("El resultado de la division " +resultado);
+                    }
+                }
+                esperarTeclaYLimpiarConsola();
+            }
+        } while (opcion != 3);
+    
+     } 
+ 
+    public static int multiplicar(int a,int b){
+        int resultado = 0;
+        for (int i = 0; i < Math.abs(b); i++) {
+            resultado += a;
+        }
+        
+        if (b<0) {
+            resultado = -resultado;
+        }
+        return resultado;
+    }
+    
+    public static int dividir(int a,int b){
+        int cociente = 0;
+        int residuo = Math.abs(a);
+        int divisor = Math.abs(b);
+        while(residuo>=divisor){
+            residuo -= divisor;
+            cociente++;
+        }
+        
+        if ((a<0 && b>0) || (a>0 && b<0)) {
+            cociente =-cociente;
+        }
+        return cociente;
+        
+  
+    }
+           
+    public static void esperarTeclaYLimpiarConsola() {
+            try {
+                System.out.println("Presione Enter para continuar...");
+                System.in.read();
+                limpiarConsola();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    public static void limpiarConsola() {
+            // Método para simular la limpieza de la consola
+            try {
+                final String os = System.getProperty("os.name");
+
+                if (os.contains("Windows")) {
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                } else {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                }
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        }
+    
 }
+    
+   
+
