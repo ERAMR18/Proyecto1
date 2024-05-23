@@ -267,9 +267,9 @@ public class Proyecto1_2024 {
         
         for (int i = 0; i < nEncuestados; i++) {
             System.out.println("**************************************************************************");
-            System.out.println("Ingrese la edad de la persona: ");
+            System.out.println("Ingrese la edad de la persona: #" + (i+1) );
             int edadPersona = scanner.nextInt();
-            System.out.println("Ingrese el peso de la persona: ");
+            System.out.println("Ingrese el peso de la persona: #" + (i+1));
             double peso = scanner.nextDouble();
             System.out.println("**************************************************************************");
         
@@ -286,8 +286,26 @@ public class Proyecto1_2024 {
                 contAMayores++;
                 pesoAMayores += peso;
             }else{
-                System.out.println("Edad fuera de rango");
+                System.out.println("Edad fuera de rango encuesta numero: #" + (i+1));
             }
         }
+        double promedioNiños = (contNiños>0) ? (pesoNiños / contNiños): 0;  //aplicacion de ternario
+        double promedioAdultos = (contAdultos>0) ? (pesoAdultos / contAdultos): 0;
+        double promedioJovenes = (contJovenes>0) ? (pesoJovenes / contJovenes): 0;
+        double promedioAMayores = (contAMayores>0) ? (pesoAMayores / contAMayores): 0;
+        
+        double promedioNiñosIf = 0;
+        if (contNiños >0) {
+            promedioNiñosIf = pesoNiños/contNiños;
+        } else {
+            promedioNiñosIf = 0;
+        }
+            
+        System.out.println("El promedio de pesos para niños es de: " + promedioNiños);
+        System.out.println("El promedio de pesos para adultos es de: " + promedioAdultos);
+        System.out.println("El promedio de pesos para jovenes es de: " + promedioJovenes);
+        System.out.println("El promedio de pesos para adultos mayores es de: " + promedioAMayores);
     }
+    
+   
 }
