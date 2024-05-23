@@ -67,9 +67,11 @@ public class Proyecto1_2024 {
                     break;
                 case 9:
                     System.out.println("Problema 9");
+                    problema_9();
                     break;
                 case 10:
                     System.out.println("Problema 10");
+                    problema_10();
                     break;
                 case 11:
                     System.out.println("");
@@ -401,7 +403,203 @@ public class Proyecto1_2024 {
             }
         }
     
-}
+    public static void problema_9(){
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Ingrese un número para calcular su factorial: ");
+        
+        
+        boolean continuar = true;
+        while (continuar) {
+            System.out.println("Evaluación de Estudiantes");
+            System.out.print("Ingrese el Código del Carnet: ");
+            String codigoCarnet = entrada.next();
+
+            System.out.print("Ingrese el Nombre del Alumno: ");
+            String nombreAlumno = entrada.next();
+
+            int primerParcial = ingresarNota(entrada, "primer parcial (0-10)", 0, 10);
+            int segundoParcial = ingresarNota(entrada, "segundo parcial (0-20)", 0, 20);
+            int zonaAcumulada = ingresarNota(entrada, "zona acumulada (0-20)", 0, 20);
+            int examenFinal = ingresarNota(entrada, "examen final (0-50)", 0, 50);
+
+            int notaFinal = primerParcial + segundoParcial + zonaAcumulada + examenFinal;
+            System.out.println("Nota final: " + notaFinal);
+
+            if (notaFinal >= 61) {
+                System.out.println("Estado: Aprobado");
+            } else {
+                System.out.println("Estado: Reprobado");
+            }
+
+            if (notaFinal < 49) {
+                System.out.println("Categoría: Estudiante Malo");
+            } else if (notaFinal <= 69) {
+                System.out.println("Categoría: Estudiante Regular");
+            } else if (notaFinal <= 89) {
+                System.out.println("Categoría: Estudiante Bueno");
+            } else {
+                System.out.println("Categoría: Estudiante Excelente");
+            }
+
+            System.out.print("¿Desea continuar con otro estudiante? (si/no): ");
+            continuar = entrada.next().equalsIgnoreCase("si");
+        }
+
+        entrada.close();
+        System.out.println("Programa finalizado.");
+        
+        
+        
+        
+    
+    }
+    
+    public static int ingresarNota(Scanner entrada, String descripcion, int min, int max) {
+        int nota;
+        while (true) {
+            System.out.print("Ingrese la nota del " + descripcion + ": ");
+            nota = entrada.nextInt();
+            if (nota >= min && nota <= max) {
+                break;
+            } else {
+                System.out.println("Error: La nota debe estar entre " + min + " y " + max + ".");
+            }
+        }
+        return nota;
+    }
+    
+    
+    
+    public static void problema_10(){
+        Scanner entrada = new Scanner(System.in);
+        boolean continuar = true;
+
+        while (continuar) {
+            // Captura de información del cliente
+            System.out.print("Ingrese el NIT del cliente: ");
+            String nit = entrada.next();
+
+            System.out.print("Ingrese el Nombre del cliente: ");
+            String nombre = entrada.next();
+
+            System.out.print("Ingrese la Dirección del cliente: ");
+            String direccion = entrada.next();
+
+            // Inicialización de variables
+            double subtotal = 0;
+            int opcion;
+
+            // Menú de pizzas
+            do {
+                System.out.println("\nSeleccione el tipo de pizza:");
+                System.out.println("\t1. Pizza Pequeña (Q35.00)");
+                System.out.println("\t2. Pizza Mediana (Q63.50)");
+                System.out.println("\t3. Pizza Grande (Q95.30)");
+                System.out.println("\t4. No más pizzas");
+                System.out.print("Opción: ");
+                opcion = entrada.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        subtotal += 35.00;
+                        break;
+                    case 2:
+                        subtotal += 63.50;
+                        break;
+                    case 3:
+                        subtotal += 95.30;
+                        break;
+                    case 4:
+                        System.out.println("No más pizzas.");
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                        break;
+                }
+                System.out.println("Subtotal hasta ahora: Q" + subtotal);
+            } while (opcion != 4);
+
+            // Menú de bebidas
+            do {
+                System.out.println("\nSeleccione el tamaño de la bebida:");
+                System.out.println("\t1. Bebida Pequeña (Q12.40)");
+                System.out.println("\t2. Bebida Grande (Q14.20)");
+                System.out.println("\t3. No más bebidas");
+                System.out.print("Opción: ");
+                opcion = entrada.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        subtotal += 12.40;
+                        break;
+                    case 2:
+                        subtotal += 14.20;
+                        break;
+                    case 3:
+                        System.out.println("No más bebidas.");
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                        break;
+                }
+                System.out.println("Subtotal hasta ahora: Q" + subtotal);
+            } while (opcion != 3);
+
+            // Menú de postres
+            do {
+                System.out.println("\nSeleccione el tipo de postre:");
+                System.out.println("\t1. Postre 1 (Q15.00)");
+                System.out.println("\t2. Postre 2 (Q16.30)");
+                System.out.println("\t3. No más postres");
+                System.out.print("Opción: ");
+                opcion = entrada.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        subtotal += 15.00;
+                        break;
+                    case 2:
+                        subtotal += 16.30;
+                        break;
+                    case 3:
+                        System.out.println("No más postres.");
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                        break;
+                }
+                System.out.println("Subtotal hasta ahora: Q" + subtotal);
+            } while (opcion != 3);
+
+            // Cálculo de descuentos e IVA
+            double descuento = 0;
+            if (subtotal > 200) {
+                descuento = subtotal * 0.05;
+            }
+            double totalConDescuento = subtotal - descuento;
+            double iva = totalConDescuento * 0.12;
+            double total = totalConDescuento + iva;
+
+            // Mostrar factura
+            System.out.println("\nFactura:");
+            System.out.println("NIT: " + nit);
+            System.out.println("Nombre: " + nombre);
+            System.out.println("Dirección: " + direccion);
+            System.out.println("Subtotal: Q" + subtotal);
+            System.out.println("Descuento: Q" + descuento);
+            System.out.println("IVA: Q" + iva);
+            System.out.println("Total: Q" + total);
+
+            // Preguntar si desea realizar otra compra
+            System.out.print("\n¿Desea realizar otra compra? (si/no): ");
+            continuar = entrada.next().equalsIgnoreCase("si");
+        }
+
+        entrada.close();
+        System.out.println("Programa finalizado.");
+    }
+    }
+
     
    
 
