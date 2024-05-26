@@ -59,12 +59,8 @@ public class Proyecto1_2024 {
                     problema_6();
                     break;
                 case 7:
-                    int filas = 1;
-                    int columnas = 1;
-                    Matriz m1 = new Matriz(filas, columnas);
-                    m1.readMatriz();
-                    m1.printMatriz();
                     System.out.println("Problema 7");
+                    problema_7();
                     break;
                 case 8:
                     System.out.println("Problema 8");
@@ -315,6 +311,40 @@ public class Proyecto1_2024 {
         System.out.println("El promedio de pesos para adultos es de: " + promedioAdultos);
         System.out.println("El promedio de pesos para jovenes es de: " + promedioJovenes);
         System.out.println("El promedio de pesos para adultos mayores es de: " + promedioAMayores);
+    }
+    
+    public static void problema_7(){
+     Scanner entrada = new Scanner(System.in);
+        
+        //Ingreso de filas y columnas
+        System.out.print("Ingresa el numero de filas: ");
+        int filas = entrada.nextInt();
+        System.out.print("Ingresa el numero de columnas: ");
+        int columnas = entrada.nextInt();
+        
+        //Matriz m1
+        Matriz m1 = new Matriz(filas, columnas);
+        m1.leer();
+
+        //Matriz m2
+        Matriz m2 = new Matriz(m1); //Se usa el segundo constructor
+
+        System.out.println("Matriz m1:");
+        m1.imprimir();
+        System.out.println("--------------------------------------------------");
+        
+        System.out.println("Matriz m2:");
+        m2.imprimir();
+        System.out.println("--------------------------------------------------");
+
+        Matriz m3 = m1.sumar(m2);
+        System.out.println("Matriz m3 (suma de m1 y m2):");
+        m3.imprimir();
+        System.out.println("--------------------------------------------------");
+
+        double maximoM3 = m3.encontrarMaximo();
+        System.out.println("Valor maximo en m3: " + String.format("%.2f", maximoM3));
+        System.out.println("--------------------------------------------------");
     }
     
     public static void problema_8(){

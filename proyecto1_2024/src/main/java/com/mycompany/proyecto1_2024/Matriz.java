@@ -2,18 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package com.mycompany.proyecto1_2024;
+
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.Scanner;
 
 /**
  *
  * @author ramir
  */
-
- public class Matriz {
-
+public class Matriz {
     /**
      * @param args the command line arguments
      */
@@ -100,45 +98,5 @@ import java.util.*;
         return resultadoZ;
     }
 
-    public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        
-        //Ingreso de filas y columnas
-        System.out.print("Ingresa el numero de filas: ");
-        int filas = entrada.nextInt();
-        System.out.print("Ingresa el numero de columnas: ");
-        int columnas = entrada.nextInt();
-        
-        //Matriz m1
-        Matriz m1 = new Matriz(filas, columnas);
-        m1.leer();
-
-        //Matriz m2
-        Matriz m2 = new Matriz(m1); //Se usa el segundo constructor
-
-        System.out.println("Matriz m1:");
-        m1.imprimir();
-        System.out.println("--------------------------------------------------");
-        
-        System.out.println("Matriz m2:");
-        m2.imprimir();
-        System.out.println("--------------------------------------------------");
-
-        Matriz m3 = m1.sumar(m2);
-        System.out.println("Matriz m3 (suma de m1 y m2):");
-        m3.imprimir();
-        System.out.println("--------------------------------------------------");
-
-        double maximoM3 = m3.encontrarMaximo();
-        System.out.println("Valor maximo en m3: " + String.format("%.2f", maximoM3));
-        System.out.println("--------------------------------------------------");
-    }
-
-    void readMatriz() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    void printMatriz() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
+
