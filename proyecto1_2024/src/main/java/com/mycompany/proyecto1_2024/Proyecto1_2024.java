@@ -10,17 +10,17 @@ import java.util.*;
  */
 public class Proyecto1_2024 {
 
-    public static void main(String[] args) {
-        Scanner entrada = new  Scanner(System.in); 
-        int opcion = 0; 
-        int salida =0;
+    public static void main(String[] args) {      // metodo main
+        Scanner entrada = new  Scanner(System.in);   // creacion del objeto scanner
+        int opcion = 0;    //creacion de la variable opcion para el menu
+        int salida =0;     // valiable de conteo para el ciclo while
         while(salida != 1){
             System.out.println("Menu Proyecto 1 programacion 2024 Grupo #");
             System.out.println("\t 1. Problema 1");
             System.out.println("\t 2. Problema 2");
             System.out.println("\t 3. Problema 3");
             System.out.println("\t 4. Problema 4");
-            System.out.println("\t 5. Problema 5");
+            System.out.println("\t 5. Problema 5");              //implementacion del menu para poder seleccionar individualmente cada uno de los problemas
             System.out.println("\t 6. Problema 6");
             System.out.println("\t 7. Problema 7");
             System.out.println("\t 8. Problema 8");
@@ -48,7 +48,7 @@ public class Proyecto1_2024 {
                     break;
                 case 4: 
                     System.out.println("Problema 4");
-                    problema_4();
+                    problema_4();                                         //Creacion del menu mediante el uso de swith
                     break;
                 case 5:
                     System.out.println("Problema 5");
@@ -59,7 +59,12 @@ public class Proyecto1_2024 {
                     problema_6();
                     break;
                 case 7:
-                    System.out.println("Problema 7");                 
+                    int filas = 1;
+                    int columnas = 1;
+                    Matriz m1 = new Matriz(filas, columnas);
+                    m1.readMatriz();
+                    m1.printMatriz();
+                    System.out.println("Problema 7");
                     break;
                 case 8:
                     System.out.println("Problema 8");
@@ -85,24 +90,26 @@ public class Proyecto1_2024 {
         }
     }
     
+    //Problema numero 1
    public static void problema_1(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese un número para calcular su factorial: ");
-        int n = scanner.nextInt();
-        long factorial = 1;
+        int n = scanner.nextInt();    //en esta variable se alamcenaran todos los datos ingresados por el usuario
+        long factorial = 1;           // el uso de la variable long nos permite hacer uso de cantidades grandes y que el resultado pueda devolver resultados grandes
         
-        if(n == 0 || n == 1){
+        if(n == 0 || n == 1){            //si n es igual a 0 "o" n es igual a 1 entonces factorial es igual a 1
             factorial = 1;
-        }else{
-            for (int i = 2; i <= n; i++){
+        }else{         //sino
+            for (int i = 2; i <= n; i++){  //ciclo for para ir haciendo la operacion para encontrar el factorial
                factorial = factorial*i;
             }
         }
-            System.out.println("El numero factorial de: " + n + " es: " + factorial);
+            System.out.println("El numero factorial de: " + n + " es: " + factorial);            //salida a consola
         
    
    }
    
+   //Problema numero 2
    public static void problema_2(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese la cantidad de numeros que desea ingresar: ");
@@ -118,7 +125,7 @@ public class Proyecto1_2024 {
             int numero = scanner.nextInt();
             
             if (numero>0) {
-                cantidadPositivos ++;
+                cantidadPositivos ++;                         //contador para cada uno de los tipos de numeros que hay
             }else if (numero<0) {
                 cantidadNegativos ++;
             }
@@ -134,10 +141,11 @@ public class Proyecto1_2024 {
         
         System.out.println("Números negativos: " + cantidadNegativos);
         System.out.println("Números positivos: " + cantidadPositivos);
-        System.out.println("Números pares: " + cantidadPares);
+        System.out.println("Números pares: " + cantidadPares);                      //salida
         System.out.println("Números impares: " + cantidadImpares); 
    }
    
+//Problema numero 3
    public static void problema_3(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el sector que desea: ");
@@ -151,7 +159,7 @@ public class Proyecto1_2024 {
         final int solCandente = 35;
         final int solLuminoso = 55;
         final int sombrita = 80;
-        final int tribunita = 150;
+        final int tribunita = 150;                          //definicion de variables
         final int sillaPlastica = 200;
         int cantidadEntradas = 0;
         int sectorSeleccionado = 0;
@@ -164,7 +172,7 @@ public class Proyecto1_2024 {
                 sectorSeleccionado = solLuminoso;
                 break;
                  case 3:
-                sectorSeleccionado = sombrita;
+                sectorSeleccionado = sombrita;                         //menu
                 break;
                  case 4:
                 sectorSeleccionado = tribunita;
@@ -188,15 +196,15 @@ public class Proyecto1_2024 {
                 //System.out.println("suma" + sumaEntradas);
                 //System.out.println(5.0/100.0);
                 double incremento = sumaEntradas*(0.05);
-                //System.out.println("el incremento: " + incremento);
+                //System.out.println("el incremento: " + incremento);                                   //recargo
                 double total = incremento+sumaEntradas;
                 System.out.println("la cantidad a pagar es: Q." + total + "0");
                 break;
             default:
                 System.out.println("Solo hay dos opciones");
         }
-    }   //problema 3
-   
+    }   
+   //problema 4  
    public static void problema_4(){
        for (int i = 0; i <= 100; i++) { 
            if (i%3==0 && i%5==0) {
@@ -307,11 +315,6 @@ public class Proyecto1_2024 {
         System.out.println("El promedio de pesos para adultos es de: " + promedioAdultos);
         System.out.println("El promedio de pesos para jovenes es de: " + promedioJovenes);
         System.out.println("El promedio de pesos para adultos mayores es de: " + promedioAMayores);
-    }
-    
-    
-    public static void problema_7(){
-    
     }
     
     public static void problema_8(){
